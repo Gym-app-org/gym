@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'main_development.dart' as dev;
+import 'routing/router.dart';
 
 void main() {
   dev.main();
@@ -15,6 +16,8 @@ class GymApp extends StatefulWidget {
 class _GymAppState extends State<GymApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router();
+    return MaterialApp.router(
+      routerConfig: router(),
+    );
   }
 }
