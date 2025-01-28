@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../routing/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,10 +24,15 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSpacing: 10,
                   crossAxisCount: 2,
                   children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      color: Colors.teal[100],
-                      child: const Text('Timer'),
+                    InkWell(
+                      onTap: () {
+                        context.go(Routes.timer);
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        color: Colors.teal[100],
+                        child: const Text('Timer'),
+                      ),
                     ),
                     Container(
                       padding: const EdgeInsets.all(8),
