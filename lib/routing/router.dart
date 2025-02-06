@@ -2,15 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../ui/home_screen/widgets/home_screen.dart';
+import '../ui/sign_in/widgets/sign_in_screen.dart';
 import '../ui/timer_screen/widgets/timer_add_friend_screen.dart';
 import '../ui/timer_screen/widgets/timer_screen.dart';
 import 'routes.dart';
 
 /// Top go_router entry point.
 GoRouter router() => GoRouter(
-      initialLocation: Routes.home,
+      routerNeglect: true,
+      initialLocation: Routes.signIn,
       debugLogDiagnostics: true,
       routes: <RouteBase>[
+        GoRoute(
+          path: Routes.signIn,
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return CustomTransitionPage<Widget>(
+              key: state.pageKey,
+              child: const SignInScreen(),
+              transitionsBuilder: _transitionBuilder,
+            );
+          },
+        ),
         GoRoute(
           path: Routes.home,
           routes: <RouteBase>[
